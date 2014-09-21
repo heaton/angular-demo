@@ -7,4 +7,9 @@ angular.module('htWebappApp')
       'AngularJS',
       'Karma'
     ];
+
+    $scope.addTodo = function() {
+      $scope.todos.push($scope.todo);
+      $scope.todo = '';
+    };
   }]);
