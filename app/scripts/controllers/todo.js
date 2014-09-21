@@ -12,4 +12,8 @@ angular.module('htWebappApp')
       $scope.todos.push($scope.todo);
       $scope.todo = '';
     };
+
+    $scope.removeTodo = function(i) {
+      $scope.todos.splice(i, 1);
+    };
   }]);
