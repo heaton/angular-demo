@@ -9,10 +9,13 @@ describe('Controller: TodoCtrl', function () {
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope, localStorageService) {
     scope = $rootScope.$new();
+    spyOn(localStorageService, "get").andReturn("");
+    spyOn(localStorageService, "add").andCallFake(function(){});
     TodoCtrl = $controller('TodoCtrl', {
-      $scope: scope
+      $scope: scope,
+      localStorageService: localStorageService
     });
   }));
 
